@@ -1,6 +1,6 @@
 <div class="address container">
   <div class="title">
-    <p>Address</p>
+    <p>Dirección</p>
   </div>
   <hr>
   <div *ngIf="innerLoading" class="loader"></div>
@@ -50,7 +50,7 @@
               <input type="text" id="zip" class="form-control" name="zip" formControlName="zip" [maxlength]="6"
                 [minlength]="5">
               <span *ngIf="addressForm.get('zip').invalid && addressForm.get('zip').touched" class="alert-danger">
-                Please enter a valid zip number!
+                ¡Por favor ingresa un código postal válido!
               </span>
             </div>
           </div>
@@ -59,7 +59,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="address">ADDRESS</label>
+              <label for="address">Dirección</label>
               <textarea type="text" id="address" class="form-control" name="address" formControlName="address" rows="3">
               </textarea>
             </div>
@@ -72,7 +72,7 @@
       <div class="row controls">
         <div class="col-md-12">
           <button class="btn btn-info" type="submit" [disabled]="addressForm.invalid || addressForm.pending">
-            Update
+            Actualizar
           </button>
         </div>
 

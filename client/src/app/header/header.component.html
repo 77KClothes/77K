@@ -13,21 +13,21 @@
       <div class="home">
         <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
           <a class="nav-link" routerLinkActive="active" routerLink="/"
-            [routerLinkActiveOptions]="{exact: true}">Home</a>
+            [routerLinkActiveOptions]="{exact: true}">Inicio</a>
         </div>
       </div>
 
       <div class="products">
         <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
           <a class="nav-link" routerLinkActive="active" routerLink="/browse"
-            [routerLinkActiveOptions]="{exact: true}">Products</a>
+            [routerLinkActiveOptions]="{exact: true}">Productos</a>
         </div>
       </div>
 
       <div class="about">
         <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
           <a class="nav-link" routerLinkActive="active" routerLink="/faq"
-            [routerLinkActiveOptions]="{exact: true}">About</a>
+            [routerLinkActiveOptions]="{exact: true}">Información</a>
         </div>
       </div>
     </div>
@@ -45,13 +45,13 @@
     <div class="end navbar-nav">
       <div class="login" *ngIf="!(authState | async).authenticated">
         <a class="nav-link" routerLink="/login">
-          <p>Login</p>
+          <p>Ingresar</p>
         </a>
       </div>
 
       <div class="register" *ngIf="!(authState | async).authenticated">
         <a class="nav-link btn" routerLink="/signup">
-          <p>Sign up</p>
+          <p>Registrarse</p>
         </a>
       </div>
 
@@ -70,23 +70,23 @@
             <div>
               <a routerLink="/account/orders" routerLinkActive="active"> <i class="fa fa-archive"
                   aria-hidden="true"></i>
-                <p>Orders</p>
+                <p>Ordenes</p>
               </a>
             </div>
             <div>
               <a routerLink="/account/address" routerLinkActive="active"><i class="fa fa-home" aria-hidden="true"></i>
-                <p>Address</p>
+                <p>Dirección</p>
               </a>
             </div>
             <div>
               <a routerLink="/account/help" routerLinkActive="active"> <i class="fa fa-question-circle-o"
                   aria-hidden="true"></i>
-                <p>Help</p>
+                <p>Ayuda</p>
               </a>
             </div>
             <div>
               <a (click)="userSignOut()"> <i class="fa fa fa-sign-out" aria-hidden="true"></i>
-                <p>Logout</p>
+                <p>Salir</p>
               </a>
             </div>
           </div>
@@ -130,7 +130,7 @@
                     </div>
                     <div class="row">
                       <div class="col-md-6">
-                        <p class="amount">Amount: <span>{{cartItem.amount}}</span></p>
+                        <p class="amount">Cantidad: <span>{{cartItem.amount}}</span></p>
                       </div>
                       <div class="col-md-6">
                         <p class="price">{{cartItem.price}} €</p>
@@ -144,7 +144,7 @@
               <div class="controls">
                 <div class="row">
                   <div class="col-md-6">
-                    <a routerLink="/cart" class="btn">Go to Cart</a>
+                    <a routerLink="/cart" class="btn">Ir al carrito</a>
                   </div>
                   <div class="col-md-6">
                     <button (click)="activatePurchase()" class="btn btn-info">Checkout</button>
@@ -156,7 +156,7 @@
             </div>
 
             <div *ngIf="!(cartState | async).cart || !(cartState | async).cart.cartItems.length" class="empty-cart">
-              <p>Your cart is empty.</p>
+              <p>Tu carrito está vacio.</p>
             </div>
 
           </div>
@@ -169,7 +169,7 @@
   <div *ngIf="(authState | async).authenticated && (authState | async).isActive == false"
     class="user-warning alert-warning">
     <hr class="p-0 m-0">
-    Welcome to Keyist! Your account is inactive. Please check your email and activate!
+    ¡Bienvenido/a a 77Z! Tu cuenta está inactiva. ¡Por favor, revisa tu correo electrónico y actívala!
     <hr class="p-0 m-0">
   </div>
 </div>

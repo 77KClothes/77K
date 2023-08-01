@@ -72,7 +72,7 @@ export class CartComponent implements OnInit, OnDestroy {
           this.store.dispatch(new OrderActions.IsCheckoutActive(true));
           this.router.navigate(['/checkout/personal'], { relativeTo: this.route });
         } else {
-          alert('Your account is inactive. You must activate your account in order to purchase.\nPlease check your email.');
+          alert('Tu cuenta está inactiva. Debes activar tu cuenta para poder realizar una compra. \nPor favor, revisa tu correo electrónico.');
         }
       });
   }

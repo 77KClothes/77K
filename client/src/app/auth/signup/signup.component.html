@@ -5,8 +5,8 @@
       <img src="../../../assets/key.png" alt="login key">
     </div>
     <div class="col-md-8">
-      <p>SIGN UP</p>
-      <span>Welcome back to Keyist</span>
+      <p>Registrarse</p>
+      <span>¡Bienvenido/a de vuelta a 77Z!</span>
     </div>
 
   </div>
@@ -15,10 +15,9 @@
     <div class="col-md-6">
       <div *ngFor="let e of (authState | async).errors">
         <div *ngIf="e.errorEffect == 'SIGN_IN'" class="alert-warning">
-          <div *ngIf="e.error.status === 400">Bad Credentials</div>
-          <div *ngIf="e.error.status === 401">401 Error</div>
-          <div *ngIf="e.error.status === 500 || e.error.status === 0">Internal server error! Please contact our support
-            team.
+          <div *ngIf="e.error.status === 400">Credenciales incorrectas.</div>
+          <div *ngIf="e.error.status === 401">Error 401</div>
+          <div *ngIf="e.error.status === 500 || e.error.status === 0">Error interno del servidor. Por favor, contacta a nuestro equipo de soporte.
           </div>
         </div>
       </div>
@@ -30,40 +29,38 @@
       <div *ngIf="(authState | async).loading" class="loader"></div>
       <form [formGroup]="signUpForm" (ngSubmit)="onSubmitted()">
         <div class="form-group">
-          <label for="email">EMAIL</label>
+          <label for="email">MAIL</label>
           <input type="text" id="email" class="form-control" name="email" formControlName="email" [maxlength]="240">
           <span *ngIf="signUpForm.get('email').invalid && signUpForm.get('email').touched" class="alert-danger">
-            Please enter a valid email!
+            Por favor, ingresa un correo electrónico válido.
           </span>
         </div>
 
         <div formGroupName="passwordGroup">
           <div class="form-group">
-            <label for="newPassword">PASSWORD</label>
+            <label for="newPassword">CONTRASEÑA</label>
             <input type="password" id="newPassword" class="form-control" name="newPassword"
               formControlName="newPassword" [maxlength]="240">
             <span
               *ngIf="signUpForm.get('passwordGroup.newPassword').invalid && signUpForm.get('passwordGroup.newPassword').touched">
-              <span *ngIf="signUpForm.get('passwordGroup.newPassword').errors['required']" class="alert-danger">This
-                field is required!</span>
-              <span *ngIf="signUpForm.get('passwordGroup.newPassword').errors['minlength']" class="alert-danger">The
-                password should at least be 6 digits!</span>
+              <span *ngIf="signUpForm.get('passwordGroup.newPassword').errors['required']" class="alert-danger">Este campo es obligatorio.</span>
+              <span *ngIf="signUpForm.get('passwordGroup.newPassword').errors['minlength']" class="alert-danger">La contraseña debe tener al menos 6 caracteres.</span>
             </span>
           </div>
           <div class="form-group">
-            <label for="newPasswordConfirm">PASSWORD REPEAT</label>
+            <label for="newPasswordConfirm">REPITE LA CONTRASEÑA</label>
             <input type="password" id="newPasswordConfirm" class="form-control" name="newPasswordConfirm"
               formControlName="newPasswordConfirm" [maxlength]="240">
             <span
               *ngIf="signUpForm.get('passwordGroup.newPasswordConfirm').invalid && signUpForm.get('passwordGroup.newPasswordConfirm').touched">
               <span *ngIf="signUpForm.get('passwordGroup.newPasswordConfirm').errors['required']"
-                class="alert-danger">This field is required!</span>
+                class="alert-danger">Este campo es obligatorio.</span>
 
             </span>
             <span *ngIf="signUpForm.get('passwordGroup').invalid && signUpForm.get('passwordGroup').touched">
               <span
                 *ngIf="signUpForm.get('passwordGroup').errors != null && signUpForm.get('passwordGroup').errors['noMatch']"
-                class="alert-danger">Your passwords must match!</span>
+                class="alert-danger">Tus contraseñas deben coincidir!</span>
             </span>
 
           </div>
@@ -73,7 +70,7 @@
         <div class="row">
           <div class="col-md-12">
             <button class="btn btn-info" type="submit"
-              [disabled]="signUpForm.invalid || signUpForm.pending || (authState | async).loading">Register
+              [disabled]="signUpForm.invalid || signUpForm.pending || (authState | async).loading">Registrar
             </button>
           </div>
         </div>
@@ -81,7 +78,7 @@
         <div class="signin row">
           <div class="col-md-12">
             <a routerLink="/login">
-              <p>Already have an account? <span>Login!</span></p>
+              <p>Ya tienes una cuenta? <span>Ingresar!</span></p>
             </a>
           </div>
         </div>

@@ -12,7 +12,7 @@ services:
       MYSQL_USER: keyistuser
       MYSQL_PASSWORD: keyistpassword
     volumes:
-      - './sql/script.sql/:/docker-entrypoint-initdb.d/script.sql'
+      - './sql/script.sql:/docker-entrypoint-initdb.d/script.sql'
 
   authorization_server:
     image: 'keyist-authorization-server:latest'

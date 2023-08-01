@@ -1,7 +1,7 @@
 <div class="interested" *ngIf="!fetchError">
   <div class="container">
     <div class="col-md-12">
-      <h3 class="title">You might be interested</h3>
+      <h3 class="title">Te puede interesar</h3>
     </div>
     <div *ngIf="(showcaseState | async).loading.includes('INTERESTED')" class="loader"></div>
     <div *ngIf="!(showcaseState | async).loading.includes('INTERESTED')" class="scroll-left" (click)="scrollLeft()">

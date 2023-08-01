@@ -2,7 +2,7 @@
   <div class="row">
     <div class="filters col-md-3">
       <div class="categories">
-        <p>Categories</p>
+        <p>Categorias</p>
         <p *ngIf="selectedCategory !== 'any'" class="remove" (click)="clearCategory()">remove</p>
         <div class="category {{selectedCategory === c.category.name ? 'active': ''}}"
           *ngFor="let c of (browseState | async).categories" (click)="selectCategory(c.category.name)">
@@ -10,23 +10,22 @@
         </div>
         <div *ngFor="let e of (browseState | async).errors">
           <div *ngIf="e.errorEffect == 'FETCH_CATEGORY'" class="alert-warning">
-            <div *ngIf="e.error.status === 400 || e.error.status === 401">Problem loading categories...</div>
-            <div *ngIf="e.error.status === 500 || e.error.status === 0 ">Internal server error! Please contact our
-              support team.
+            <div *ngIf="e.error.status === 400 || e.error.status === 401">Problema al cargar las categorías...</div>
+            <div *ngIf="e.error.status === 500 || e.error.status === 0 ">Error interno del servidor. Por favor, contacta a nuestro equipo de soporte.
             </div>
           </div>
         </div>
       </div>
       <div class="price">
         <p>Price</p>
-        <p *ngIf="minPrice !== '0' || maxPrice !== '0'" class="remove" (click)="clearPrice()">remove</p>
+        <p *ngIf="minPrice !== '0' || maxPrice !== '0'" class="remove" (click)="clearPrice()">Eliminar</p>
         <div class="row">
           <div class="min col-md-4">
-            <p>Min Price</p>
+            <p>Precio min.</p>
             <input type="number" (change)="selectMin($event.target.value)" value="{{minPrice !== '0' ? minPrice : ''}}">
           </div>
           <div class="max col-md-4">
-            <p>Max Price</p>
+            <p>Precio max.</p>
             <input type="number" (change)="selectMax($event.target.value)" value="{{maxPrice !== '0' ? maxPrice : ''}}">
           </div>
           <div class="col-md-2"></div>
@@ -34,7 +33,7 @@
       </div>
       <div class="color">
         <p>Color</p>
-        <p *ngIf="selectedColor !== 'any'" class="remove" (click)="clearColor()">remove</p>
+        <p *ngIf="selectedColor !== 'any'" class="remove" (click)="clearColor()">eliminar</p>
         <div>
           <div *ngFor="let color of (browseState | async).colors" [ngStyle]="{'background-color': color.color.hex}"
             (click)="selectColor(color.color.name)" class="{{selectedColor === color.color.name ? 'active' : ''}}">
@@ -47,7 +46,7 @@
       <div *ngIf="(browseState | async).loading" class="loader"></div>
       <div class="row">
         <div class="col-md-6">
-          <p class="product-count">{{(browseState | async).productsCount}} Product Found</p>
+          <p class="product-count">{{(browseState | async).productsCount}} Producto Encontrado</p>
         </div>
         <div class="col-md-6">
           <div class="sort">
@@ -61,10 +60,8 @@
           <div *ngFor="let e of (browseState | async).errors">
             <div *ngIf="e.errorEffect == 'FETCH_PRODUCTS' || e.errorEffect == 'FETCH_PRODUCTS_APPEND'"
               class="alert-warning col-md-12">
-              <div *ngIf="e.error.status === 400 || e.error.status === 401 ">Problem loading products...</div>
-              <div *ngIf="e.error.status === 500 || e.error.status === 0 ">Internal server error! Please contact our
-                support
-                team.
+              <div *ngIf="e.error.status === 400 || e.error.status === 401 ">Problema al cargar los productos...</div>
+              <div *ngIf="e.error.status === 500 || e.error.status === 0 ">Error interno del servidor. Por favor, contacta a nuestro equipo de soporte.
               </div>
             </div>
           </div>
@@ -83,7 +80,7 @@
                 <div class="product-color" [ngStyle]="{'background-color': product.productVariant.color.hex}"></div>
               </div>
               <div class="col-md-6">
-                <p>{{product.productVariant.price}} €</p>
+                <p>{{product.productVariant.price}} $</p>
               </div>
             </div>
           </a>
@@ -92,8 +89,8 @@
         <div class="product-not-found"
           *ngIf="(browseState | async).productsCount === 0 && !(browseState | async).loading">
           <h1>:(</h1>
-          <h3>Sorry, no product found</h3>
-          <p>Try searching again!</p>
+          <h3>No encontramos el producto</h3>
+          <p>Intenta buscando otra cosa!</p>
         </div>
       </div>
 

@@ -2,20 +2,20 @@
 
   <div class="title row">
     <div class="col-md-12">
-      <p>Orders</p>
+      <p>Ordenes</p>
     </div>
   </div>
   <hr>
 
   <div *ngIf="fetchError" class="row">
     <div class="col-md-12">
-      <div class="alert-warning">An error occurred. Please try again.</div>
+      <div class="alert-warning">Ocurrió un error. Por favor, inténtalo nuevamente.</div>
     </div>
   </div>
 
   <div *ngIf="noOrders" class="row">
     <div class="col-md-12">
-      <p class="no-order">You do not have any orders. <a routerLink="/browse">Browse now!</a></p>
+      <p class="no-order">No tienes ningún pedido. <a routerLink="/browse">¡Navega ahora!</a></p>
     </div>
   </div>
 
@@ -26,13 +26,13 @@
       <div class="order-title">
         <div class="row">
           <div class="col-md-3">
-            <p>ORDER: <span>#{{order.id}}</span></p>
+            <p>ORDEN: <span>#{{order.id}}</span></p>
           </div>
           <div class="date col-md-6">
-            <p>DATE: <span>{{convertDate(order.date) }}</span></p>
+            <p>FECHA: <span>{{convertDate(order.date) }}</span></p>
           </div>
           <div class="status col-md-3">
-            <p>STATUS: <span>{{order.shipped === 0 ? 'Preparing' :  'Shipped'}}</span></p>
+            <p>ESTADO: <span>{{order.shipped === 0 ? 'Preparing' :  'Shipped'}}</span></p>
           </div>
         </div>
       </div>
@@ -41,10 +41,10 @@
         <div class="col-md-7 left-panel">
           <div class="row">
             <div class="col-md-6 col-6">
-              <p>Name: <span>{{order.shipName}}</span></p>
+              <p>Nombre: <span>{{order.shipName}}</span></p>
             </div>
             <div class="col-md-6 col-6">
-              <p>Phone: <span>{{order.phone}}</span></p>
+              <p>Telefono: <span>{{order.phone}}</span></p>
             </div>
           </div>
           <div class="row">
@@ -52,38 +52,38 @@
               <p>Country: <span>{{order.country}}</span></p>
             </div>
             <div class="col-md-6 col-6">
-              <p>City: <span>{{order.city}}</span></p>
+              <p>Ciudad: <span>{{order.city}}</span></p>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 col-6">
-              <p>State: <span>{{order.state}}</span></p>
+              <p>Departamento/Estado: <span>{{order.state}}</span></p>
             </div>
             <div class="col-md-6 col-6">
-              <p>Zip Code: <span>{{order.zip}}</span></p>
+              <p>Codigo Postal <span>{{order.zip}}</span></p>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 col-6">
-              <p>Cargo Price: <span>{{order.totalCargoPrice}} €</span></p>
+              <p>Subtotal: <span>{{order.totalCargoPrice}} €</span></p>
             </div>
             <div class="col-md-6 col-6">
-              <p>Final Price: <span>{{ order.totalPrice }} €</span></p>
+              <p>Precio Total: <span>{{ order.totalPrice }} €</span></p>
             </div>
           </div>
           <div class="row" *ngIf="order.discount">
             <div class="col-md-6 col-6">
-              <p>Discount: <span>{{order.discount.discountPercent}}%</span></p>
+              <p>Descuento: <span>{{order.discount.discountPercent}}%</span></p>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12 col-12">
-              <p>Ship Address: <span>{{order.shipAddress}}</span></p>
+              <p>Dirección Envío: <span>{{order.shipAddress}}</span></p>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12 col-12">
-              <p>Billing Address: <span>{{order.billingAddress}}</span></p>
+              <p>Dirección facturación: <span>{{order.billingAddress}}</span></p>
             </div>
           </div>
 
@@ -104,10 +104,10 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                      <p class="amount">Amount: <span>{{orderDetail.amount}}</span></p>
+                      <p class="amount">Cantidad: <span>{{orderDetail.amount}}</span></p>
                     </div>
                     <div class="col-md-6">
-                      <p class="price">{{orderDetail.price}} €</p>
+                      <p class="price">{{orderDetail.price}} $</p>
                     </div>
                   </div>
                 </div>

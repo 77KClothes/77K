@@ -1,6 +1,6 @@
 <div class="newly-added container" *ngIf="!(showcaseState | async).errors.includes('FETCH_NEWLY_ADDED')">
   <div class="col-md-12">
-    <h3 class="title">New Products</h3>
+    <h3 class="title">Productos nuevos</h3>
   </div>
   <div *ngIf="(showcaseState | async).loading.includes('FETCH_NEWLY_ADDED')" class="loader"></div>
   <div *ngIf="!(showcaseState | async).loading.includes('FETCH_NEWLY_ADDED')" class="row new-cards">

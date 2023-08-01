@@ -69,16 +69,16 @@
       <div class="col-md-12">
         <input type="checkbox" name="terms" id="terms" (change)="termsAccepted = !termsAccepted">
         <label for="terms">
-          <p>I have read and confirm</p>
+          <p>He leído y confirmo</p>
         </label>
         <div class="terms-text" (click)="openTermsModel()">
-          <p>the terms of service.</p>
+          <p>los términos del servicio.</p>
         </div>
       </div>
     </div>
     <div class="row">
       <Button class="btn btn-info" (click)="openBankModal()" [disabled]="!termsAccepted">
-        Purchase
+        Comprar
       </Button>
     </div>
   </div>
