@@ -59,3 +59,5 @@ services:
       - resource_server
     ports:
       - '4200:80'
+    volumes:
+      - './client:/app'
