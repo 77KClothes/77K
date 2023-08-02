@@ -16,10 +16,10 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-            <p class="amount">Amount: <span>{{cartItem.amount}}</span></p>
+            <p class="amount">Cantidad: <span>{{cartItem.amount}}</span></p>
           </div>
           <div class="col-md-6">
-            <p class="price">{{cartItem.price}} €</p>
+            <p class="price">{{cartItem.price}} $</p>
           </div>
         </div>
       </div>
@@ -28,24 +28,24 @@
   <div class="pricing">
     <div class="row">
       <div class="col-md-4 col-4">
-        <span class="label">Cart</span>
+        <span class="label">Carrito</span>
       </div>
       <div class="col-md-8 col-8">
-        <span>{{(cartState | async).cart.totalCartPrice.toFixed(2) | number:'1.2' }} €</span>
+        <span>{{(cartState | async).cart.totalCartPrice.toFixed(2) | number:'1.2' }} $</span>
       </div>
     </div>
     <div class="row ">
       <div class="col-md-4 col-4">
-        <span class="label">Shipping</span>
+        <span class="label">Envío</span>
       </div>
       <div class="col-md-8 col-8">
-        <span>{{(cartState | async).cart.totalCargoPrice.toFixed(2) | number:'1.2' }} €</span>
+        <span>{{(cartState | async).cart.totalCargoPrice.toFixed(2) | number:'1.2' }} $</span>
       </div>
     </div>
 
     <div *ngIf="(cartState | async).cart && (cartState | async).cart.discount" class="row">
       <div class="col-md-4 col-4">
-        <span class="label discount-text">Discount</span>
+        <span class="label discount-text">Descuento</span>
       </div>
       <div class="col-md-8 col-8">
         <span class="discount-text">{{(cartState | async).cart.discount.discountPercent}}%</span>
@@ -59,7 +59,7 @@
         <span class="label">Total</span>
       </div>
       <div class="col-md-8 col-8">
-        <span>{{(cartState | async).cart.totalPrice.toFixed(2) | number:'1.2' }} €</span>
+        <span>{{(cartState | async).cart.totalPrice.toFixed(2) | number:'1.2' }} $</span>
       </div>
     </div>
   </div>
@@ -79,7 +79,7 @@
     <div class="row">
       <Button class="btn btn-info" (click)="openBankModal()" [disabled]="!termsAccepted">
         Comprar
-      </Button>
+      </Button> 
     </div>
   </div>
 </div>

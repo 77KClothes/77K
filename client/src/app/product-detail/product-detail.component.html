@@ -23,7 +23,7 @@
           </div>
 
           <div class="price col-md-6">
-            <span>{{ activeProductVariant.price }} €</span>
+            <span>{{ activeProductVariant.price }} $</span>
           </div>
         </div>
 
@@ -54,13 +54,13 @@
 
         <div class="row">
           <div class="variant-title col-md-4 {{activeTab === 0 ? 'active': ''}}" (click)="setActiveTab(0)">
-            <p>Variants</p>
+            <p>Variantes</p>
           </div>
           <div class="product-detail-title col-md-4 {{activeTab === 1 ? 'active': ''}}" (click)="setActiveTab(1)">
-            <p>Detail</p>
+            <p>Detalle</p>
           </div>
           <div class="delivery-title col-md-4 {{activeTab === 2 ? 'active': ''}}" (click)="setActiveTab(2)">
-            <p>Delivery</p>
+            <p>Entrega</p>
           </div>
         </div>
 
@@ -73,40 +73,36 @@
           </div>
           <div class="product-detail-info col-md-12" *ngIf="activeTab === 1">
             <div>
-              <p>COLOR:</p>
+              <p>Color:</p>
               <div class="color" [ngStyle]="{'background-color': activeProductVariant.color.hex}"></div>
               <span>{{activeProductVariant.color.name.toLocaleUpperCase()}}</span>
             </div>
             <div>
-              <p>WIDTH:</p>
+              <p>Ancho:</p>
               <span>{{activeProductVariant.width}}</span>
             </div>
             <div>
-              <p>HEIGHT:</p>
+              <p>Alto:</p>
               <span>{{activeProductVariant.height}}</span>
             </div>
             <div>
-              <p>COMPOSITION:</p>
+              <p>Composición:</p>
               <span>{{activeProductVariant.composition}}</span>
             </div>
           </div>
           <div class="delivery-info col-md-12" *ngIf="activeTab === 2">
             <div>
-              <p>CARGO PRICE:</p>
-              <span>{{activeProductVariant.cargoPrice}} €</span>
+              <p>Costo del envío:</p>
+              <span>{{activeProductVariant.cargoPrice}} $</span>
             </div>
             <div>
-              <span>Orders go out in 1 business day or less.</span>
+              <span>Las compras se envían en los primeros 3 días hábiles tras la compra.</span>
             </div>
             <div>
-              <span>We ship internationally, to most countries.</span>
+              <span>Hacemos envíos a todo Uruguay.</span>
             </div>
             <div>
-              <span>International customers: you will be responsible for paying any CUSTOMS and DUTIES on your
-                order.</span>
-            </div>
-            <div>
-              <p>This is a demo site. Products listed here are only for demonstration purposes.</p>
+              <span>Envíos a través de DAC o MirTrans.</span>
             </div>
           </div>
         </div>
