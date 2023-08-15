@@ -69,22 +69,22 @@
       </div>
       <hr>
       <div class="product row">
-        <div class="product-card col-lg-3 col-md-6 col-12" *ngFor="let product of ( browseState | async ).products">
+        <div class="product-card col-lg-5 col-md-6 col-12" *ngFor="let product of (browseState | async ).products">
           <a routerLink="/detail/{{product.url}}/{{product.productVariant.id}}">
             <img src="{{product.productVariant.thumb}}" alt="product image"
               [ngClass]="{'gray': (browseState | async).loading}">
-            <hr>
-            <p class="product-name">{{product.name}}</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="product-color" [ngStyle]="{'background-color': product.productVariant.color.hex}"></div>
+            <div class="product-details">
+              <p class="product-name">{{product.name}}</p>
+              <div class="row">
+                <!-- <div class="col-md-12">
+                  <div class="product-color" [ngStyle]="{'background-color': product.productVariant.color.hex}"></div>
+                </div> -->
               </div>
-              <div class="col-md-6">
-                <p>{{product.productVariant.price}} $</p>
-              </div>
+              <p class="product-price">{{product.productVariant.price}} $</p>
             </div>
           </a>
         </div>
+        
 
         <div class="product-not-found"
           *ngIf="(browseState | async).productsCount === 0 && !(browseState | async).loading">
