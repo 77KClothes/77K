@@ -3,11 +3,10 @@
     <h3 class="title">Mas vendidos</h3>
   </div>
   <div *ngIf="(showcaseState | async).loading.includes('FETCH_NEWLY_ADDED')" class="loader"></div>
-  <div *ngIf="!(showcaseState | async).loading.includes('FETCH_NEWLY_ADDED')" class="scroll-left"
-    (click)="scrollLeft()"></div>
-  <div *ngIf="!(showcaseState | async).loading.includes('FETCH_NEWLY_ADDED')" class="most-cards" #mostCards>
-    <div class="most-card col-lg-3 col-md-6 col-12" *ngFor="let m of (showcaseState | async).mostSelling">
-      <a routerLink="/detail/{{m.url}}/{{m.productVariant.id}}">
+  <div class="scroll-left" (mousedown)="scrollLeft()" (mouseup)="stopScroll()" (mouseleave)="stopScroll()"></div>
+  <div class="most-cards" #mostCards>
+    <div class="most-card" *ngFor="let m of (showcaseState | async).mostSelling">
+      <a routerLink="/detail/{{m.url}}/{{m.productVariant.id}}" (mousedown)="onCardClick($event)">
         <img src="{{m.productVariant.thumb}}" alt="{{m.name}}">
         <hr>
         <p class="product-name">{{m.name}}</p>
@@ -22,6 +21,5 @@
       </a>
     </div>
   </div>
-  <div *ngIf="!(showcaseState | async).loading.includes('FETCH_NEWLY_ADDED')" class="scroll-right"
-    (click)="scrollRight()"></div>
+  <div class="scroll-right" (click)="scrollRight()"></div>
 </div>

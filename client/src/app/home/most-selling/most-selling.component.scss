@@ -2,14 +2,22 @@
   position: relative;
   top: 150px;
   min-height: 15vh;
+  width: 100%;
+  min-width: 100%;
+  :hover, :active {
+    cursor: grab;
+  }
+  :active {
+    cursor: grabbing;
+  }
   .title {
     font-weight: bold;
     color: black;
     font-size: 18px;
   }
   .most-cards {
-    scroll-behavior: smooth;
-    overflow: auto;
+    scroll-behavior: calc(0.2s * 1000);
+    overflow-x: hidden;
     white-space: nowrap;
     text-align: center;
     padding: 10px;
@@ -37,8 +45,9 @@
         text-decoration: none;
       }
       img {
-        width: 180px;
-        height: 180px;
+        width: 500px;
+        border-radius: 5px;
+        transition: scale 0.2s;
       }
       .product-color {
         position: relative;
@@ -52,27 +61,33 @@
       }
     }
 
-    .most-card:hover {
-      border-radius: 10px;
-      -webkit-box-shadow: 0px 3px 5px 6px rgba(57, 41, 41, 0.1);
-      -moz-box-shadow: 0px 3px 5px 6px rgba(57, 41, 41, 0.1);
-      box-shadow: 0px 3px 5px 6px rgba(57, 41, 41, 0.1);
+    .most-card img:hover {
+      scale: 1.01;
+      transition: scale 0.2s;
     }
   }
 
   .scroll-left {
+    margin-left: 10px;
     background-image: url("../../../assets/left.svg");
     cursor: pointer;
     z-index: 9999;
     position: absolute;
     top: 40%;
     display: inline-block;
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
     font-size: 34px;
+
+  }
+
+  .scroll-left:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
   }
 
   .scroll-right {
+    margin-right: 10px;
     background-image: url("../../../assets/right.svg");
     cursor: pointer;
     z-index: 9999;
@@ -80,9 +95,14 @@
     top: 40%;
     right: 0;
     display: inline-block;
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
     font-size: 34px;
+  }
+
+  .scroll-right:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
   }
 
   p {

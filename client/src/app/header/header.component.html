@@ -45,13 +45,13 @@
     <div class="end navbar-nav">
       <div class="login" *ngIf="!(authState | async).authenticated">
         <a class="nav-link" routerLink="/login">
-          <p>Ingresar</p>
+          <!-- <p>Ingresar</p> -->
         </a>
       </div>
 
       <div class="register" *ngIf="!(authState | async).authenticated">
         <a class="nav-link btn" routerLink="/signup">
-          <p>Registrarse</p>
+          <p>Ingresar</p>
         </a>
       </div>
 
