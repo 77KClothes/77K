@@ -3,10 +3,10 @@
     <h3 class="title">Mas vendidos</h3>
   </div>
   <div *ngIf="(showcaseState | async).loading.includes('FETCH_NEWLY_ADDED')" class="loader"></div>
-  <div class="scroll-left" (mousedown)="scrollLeft()" (mouseup)="stopScroll()" (mouseleave)="stopScroll()"></div>
+  <div class="scroll-left" (click)="scrollLeft()"></div>
   <div class="most-cards" #mostCards>
     <div class="most-card" *ngFor="let m of (showcaseState | async).mostSelling">
-      <a routerLink="/detail/{{m.url}}/{{m.productVariant.id}}" (mousedown)="onCardClick($event)">
+      <a (mousedown)="justAMethod()" (click)="onCardClick(m.url, m.productVariant.id)">
         <img src="{{m.productVariant.thumb}}" alt="{{m.name}}">
         <hr>
         <p class="product-name">{{m.name}}</p>
@@ -15,7 +15,7 @@
             <div class="product-color" [ngStyle]="{'background-color': m.productVariant.color.hex}"></div>
           </div>
           <div class="col-md-6">
-            <p>{{m.productVariant.price}} $</p>
+            <p>{{m.productVariant.price}} $</p> 
           </div>
         </div>
       </a>

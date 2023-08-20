@@ -45,6 +45,10 @@
         text-decoration: none;
       }
       img {
+        user-select: none;
+        // drag none
+        -moz-user-select: none;
+        -webkit-user-drag: none;
         width: 500px;
         border-radius: 5px;
         transition: scale 0.2s;
