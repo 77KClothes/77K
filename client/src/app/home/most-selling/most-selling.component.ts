@@ -22,6 +22,7 @@
     scrollSpeed: number = 20;
     scrollInterval: any;
     routeTo: string;
+    canRoute: boolean = false;
 
     constructor(private store: Store<fromApp.AppState>,
       private router: Router) {}
@@ -50,7 +51,8 @@
       // imprime la posicion del mouse al soltar el click
       console.log(event.clientX, event.clientY);
       if (this.startX == event.clientX) {
-        this.router.navigateByUrl(this.routeTo);
+        console.log("entre porque son iguales: " + this.startX + " - " + event.clientX)
+        this.canRoute = true;
       }
       if(this.startX > event.clientX) {
         // scrolear hacia la derecha
@@ -76,7 +78,12 @@
     }
 
     onCardClick(url: string, productVariantId: string) {
-      this.routeTo = `/detail/${url}/${productVariantId}`;
+      console.log("onCardClick - canRoute: " + this.canRoute)
+      if(this.canRoute) {
+        console.log("ruteo hacia: " + url + " con el id: " + productVariantId)
+        this.routeTo = `/detail/${url}/${productVariantId}`;
+        this.router.navigate([this.routeTo]);
+      }
     }
 
     justAMethod(){

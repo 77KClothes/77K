@@ -6,16 +6,16 @@
   <div class="scroll-left" (click)="scrollLeft()"></div>
   <div class="most-cards" #mostCards>
     <div class="most-card" *ngFor="let m of (showcaseState | async).mostSelling">
-      <a (mousedown)="justAMethod()" (click)="onCardClick(m.url, m.productVariant.id)">
+      <a (click)="onCardClick(m.url, m.productVariant.id)">
         <img src="{{m.productVariant.thumb}}" alt="{{m.name}}">
         <hr>
         <p class="product-name">{{m.name}}</p>
         <div class="row">
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <div class="product-color" [ngStyle]="{'background-color': m.productVariant.color.hex}"></div>
-          </div>
-          <div class="col-md-6">
-            <p>{{m.productVariant.price}} $</p> 
+          </div> -->
+          <div>
+            <p class="product-price">{{m.productVariant.price}} $</p> 
           </div>
         </div>
       </a>
