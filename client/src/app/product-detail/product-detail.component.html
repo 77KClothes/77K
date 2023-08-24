@@ -5,92 +5,86 @@
   <div *ngIf="innerLoading" class="loader"></div>
   <div *ngIf="innerLoading" style="min-height: 50vh"></div>
   <div *ngIf="product != null && innerLoading == false" class="row pt-5">
-    <div class="col-md-7">
-      <img class="product-img img-responsive" src="{{ activeProductVariant.image }}" alt="{{ product.name }}">
+    <div class="imgContainer col-md-6">
+      <div class="zoom-container" (click)="handleZoom()">
+        <img class="product-img img-responsive" 
+             src="{{ activeProductVariant.image }}" 
+             alt="{{ product.name }}"
+             [ngStyle]="{ 'transform': zoomActive ? 'scale(2.2)' : 'scale(1)' }"
+             (mousemove)="handleMouseMove($event)">
+      </div>
     </div>
+    
     <div class="col-md-4 mr-auto">
 
       <div class="product-description">
         <span class="category">{{ product.category.name }}</span>
         <h1 class="name">{{ product.name}}</h1>
         <p class="description"> {{ product.longDesc }}</p>
+        
+        <div class="price col-md-6">
+          <span>{{ activeProductVariant.price }} $</span>
+        </div>
 
+        <div class="row">
+          <div class="size-buttons col-md-12">
+            <button class="size-button">S</button>
+            <button class="size-button">M</button>
+            <button class="size-button">L</button>
+            <button class="size-button">XL</button>
+            <button class="size-button">XXL</button>
+          </div>
+        </div>
 
         <div class="row">
           <div class="amount col-md-6">
-            <div class="row"><span>AMOUNT</span></div>
+            <div class="row"><span>CANTIDAD</span></div>
             <div class="row"><input #amount type="number" placeholder="-" min="1" value="1"></div>
-          </div>
-
-          <div class="price col-md-6">
-            <span>{{ activeProductVariant.price }} $</span>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-md-12" *ngFor="let e of (cartState | async).errors">
-            <div *ngIf="e.errorEffect == 'ADD_TO_CART'" class="alert-warning">
-              <div class="col-md-12">
-                <div *ngIf="e.error.status === 400 || e.error.status === 401">Could not add item.</div>
-                <div *ngIf="e.error.status === 409">Please select a proper amount</div>
-                <div *ngIf="e.error.status === 500 || e.error.status === 0">Internal server error. Please contact our
-                  support team.
+          <div class="col-md-12">
+            <div *ngFor="let e of (cartState | async).errors">
+              <div *ngIf="e.errorEffect == 'ADD_TO_CART'" class="alert-warning">
+                <div class="col-md-12">
+                  <div *ngIf="e.error.status === 400 || e.error.status === 401">Could not add item.</div>
+                  <div *ngIf="e.error.status === 409">Please select a proper amount</div>
+                  <div *ngIf="e.error.status === 500 || e.error.status === 0">Internal server error. Please contact our
+                    support team.
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="add col-md-12">
-            <div *ngIf="(cartState | async).loading" class="loader" style="top:0; left: 25%"></div>
-            <button *ngIf="activeProductVariant.stock > 0" (click)="addToCart(amount)"
-              [disabled]="(cartState | async).loading"
-              [style.display]="(cartState | async).loading ? 'none' : 'inline-block'" class="btn btn-info">Add to cart
-            </button>
-            <button *ngIf="activeProductVariant.stock === 0" [disabled]="(cartState | async).loading"
-              [style.display]="(cartState | async).loading ? 'none' : 'inline-block'" class="btn out-stock">Out Of Stock
-            </button>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="variant-title col-md-4 {{activeTab === 0 ? 'active': ''}}" (click)="setActiveTab(0)">
-            <p>Variantes</p>
-          </div>
-          <div class="product-detail-title col-md-4 {{activeTab === 1 ? 'active': ''}}" (click)="setActiveTab(1)">
-            <p>Detalle</p>
-          </div>
-          <div class="delivery-title col-md-4 {{activeTab === 2 ? 'active': ''}}" (click)="setActiveTab(2)">
-            <p>Entrega</p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="variant-info col-md-12" *ngIf="activeTab === 0">
-            <div *ngFor="let v of product.productVariantDetails"
-              class="col-md-4 {{v.id === activeProductVariant.id ? 'active' : ''}}" (click)="setActiveVariant(v.id)">
-              <img src="{{v.thumb}}" alt="{{v.color.name}}">
+            <div class="add col-md-12">
+              <div *ngIf="(cartState | async).loading" class="loader" style="top:0; left: 25%"></div>
+              <button *ngIf="activeProductVariant.stock > 0" (click)="addToCart(amount)"
+                [disabled]="(cartState | async).loading"
+                [style.display]="(cartState | async).loading ? 'none' : 'inline-block'" class="btn btn-info">Add to cart
+              </button>
+              <button *ngIf="activeProductVariant.stock === 0" [disabled]="(cartState | async).loading"
+                [style.display]="(cartState | async).loading ? 'none' : 'inline-block'" class="btn out-stock">Out Of Stock
+              </button>
             </div>
           </div>
-          <div class="product-detail-info col-md-12" *ngIf="activeTab === 1">
+        </div>
+
+        <div class="row">
+          <div class="product-detail-info col-md-12">
             <div>
               <p>Color:</p>
               <div class="color" [ngStyle]="{'background-color': activeProductVariant.color.hex}"></div>
               <span>{{activeProductVariant.color.name.toLocaleUpperCase()}}</span>
             </div>
             <div>
-              <p>Ancho:</p>
-              <span>{{activeProductVariant.width}}</span>
-            </div>
-            <div>
-              <p>Alto:</p>
-              <span>{{activeProductVariant.height}}</span>
-            </div>
-            <div>
               <p>Composición:</p>
               <span>{{activeProductVariant.composition}}</span>
             </div>
           </div>
-          <div class="delivery-info col-md-12" *ngIf="activeTab === 2">
+        </div>
+
+        <div class="row">
+          <div class="delivery-info col-md-12">
             <div>
               <p>Costo del envío:</p>
               <span>{{activeProductVariant.cargoPrice}} $</span>

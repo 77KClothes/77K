@@ -36,6 +36,12 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   activeTab = 0;
 
+  zoomActive = false;
+  initialX = 0;
+  initialY = 0;
+  xOffset = 0;
+  yOffset = 0;
+
 
   constructor(private router: Router, private route: ActivatedRoute,
               private locStrat: LocationStrategy,
@@ -89,6 +95,25 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       }
     );
 
+  }
+
+  handleZoom() {
+    this.zoomActive = !this.zoomActive;
+    if (!this.zoomActive) {
+      this.xOffset = 0;
+      this.yOffset = 0;
+    }
+  }
+
+  handleMouseMove(e: MouseEvent) {
+    if (this.zoomActive) {
+      if (!this.initialX || !this.initialY) {
+        this.initialX = e.clientX;
+        this.initialY = e.clientY;
+      }
+      this.xOffset = e.clientX - this.initialX;
+      this.yOffset = e.clientY - this.initialY;
+    }
   }
 
   ngOnDestroy() {
