@@ -307,26 +307,27 @@ INSERT INTO keyist.product_category (id, name) VALUES (2, 'Coleccion Demon Slaye
 INSERT INTO keyist.color (id, name, hex) VALUES (1, 'red', '#ff144b');
 INSERT INTO keyist.product (id, category_id, sku, name, url, long_desc, date_created, last_updated, unlimited) VALUES (1, 1, '000-0001', 'Itachi', 'itachi', 'Modelo Itachi Uchiha.', '2018-05-18 09:50:48', '2023-10-22 01:55:43', 1);
 INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (1, 1, 1, '4cm', '10cm', 1900, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/N6gpaxt.jpg', 'https://i.imgur.com/N6gpaxt.jpg');
+INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (2, 1, 1, '4cm', '10cm', 1900, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/Wwew0uK.jpg', 'https://i.imgur.com/Wwew0uK.jpg');
 
 INSERT INTO keyist.product (id, category_id, sku, name, url, long_desc, date_created, last_updated, unlimited) VALUES (2, 1, '000-0001', 'Minato', 'minato', 'Modelo Minato Namikaze', '2023-07-31 09:50:48', '2023-10-22 01:55:43', 1);
-INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (2, 2, 1, '4cm', '10cm', 1850, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/w3w4CpN.jpg', 'https://i.imgur.com/w3w4CpN.jpg');
+INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (3, 2, 1, '4cm', '10cm', 1850, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/w3w4CpN.jpg', 'https://i.imgur.com/w3w4CpN.jpg');
 
 INSERT INTO keyist.product (id, category_id, sku, name, url, long_desc, date_created, last_updated, unlimited) VALUES (3, 1, '000-0001', 'Sakura', 'sakura', 'Modelo Sakura Haruno', '2023-07-31 09:50:48', '2023-10-22 01:55:43', 1);
-INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (3, 3, 1, '4cm', '10cm', 1850, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/mBPbFB0.jpg', 'https://i.imgur.com/mBPbFB0.jpg');
+INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (4, 3, 1, '4cm', '10cm', 1850, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/mBPbFB0.jpg', 'https://i.imgur.com/mBPbFB0.jpg');
 
 -- sasuke uchiha
 INSERT INTO keyist.product (id, category_id, sku, name, url, long_desc, date_created, last_updated, unlimited) VALUES (4, 1, '000-0001', 'Sasuke', 'sasuke', 'Modelo Sasuke Uchiha', '2023-07-31 09:50:48', '2023-10-22 01:55:43', 1);
-INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (4, 4, 1, '4cm', '10cm', 1850, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/Apn4Vlc.png', 'https://i.imgur.com/Apn4Vlc.png');
+INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (5, 4, 1, '4cm', '10cm', 1850, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/Apn4Vlc.png', 'https://i.imgur.com/Apn4Vlc.png');
 
 -- Madara Uchiha
 INSERT INTO keyist.product (id, category_id, sku, name, url, long_desc, date_created, last_updated, unlimited) VALUES (5, 1, '000-0001', 'Madara', 'madara', 'Modelo Madara Uchiha', '2023-07-31 09:50:48', '2023-10-22 01:55:43', 1);
-INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (5, 5, 1, '4cm', '10cm', 1850, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/rLySpcq.jpg', 'https://i.imgur.com/rLySpcq.jpg');
+INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (6, 5, 1, '4cm', '10cm', 1850, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/rLySpcq.jpg', 'https://i.imgur.com/rLySpcq.jpg');
 
 -- Second collection
 
 INSERT INTO keyist.product (id, category_id, sku, name, url, long_desc, date_created, last_updated, unlimited) VALUES (6, 2, '000-0001', 'Nezuko', 'Nezuko', 'Modelo Nezuko Kamado', '2023-07-31 09:50:48', '2023-10-22 01:55:43', 1);
-INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (6, 6, 1, '4cm', '10cm', 1850, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/0QIYf6j.jpg', 'https://i.imgur.com/0QIYf6j.jpg');
+INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (8, 6, 1, '4cm', '10cm', 1850, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/0QIYf6j.jpg', 'https://i.imgur.com/0QIYf6j.jpg');
 
 -- Kyojuro Rengoku
 INSERT INTO keyist.product (id, category_id, sku, name, url, long_desc, date_created, last_updated, unlimited) VALUES (7, 2, '000-0001', 'Kyojuro Rengoku', 'Kyojuro Rengoku', 'Modelo Kyojuro Rengoku', '2023-07-31 09:50:48', '2023-10-22 01:55:43', 1);
-INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (7, 7, 1, '4cm', '10cm', 1850, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/8HY7jS4.jpg', 'https://i.imgur.com/8HY7jS4.jpg'); 
+INSERT INTO keyist.product_variant (id, product_id, color_id, width, height, price, composition, cargo_price, tax_percent, sell_count, stock, live, image, thumb) VALUES (9, 7, 1, '4cm', '10cm', 1850, '60% cotton, 40% polyester', 5, 10, 6, 1000, 1, 'https://i.imgur.com/8HY7jS4.jpg', 'https://i.imgur.com/8HY7jS4.jpg'); 

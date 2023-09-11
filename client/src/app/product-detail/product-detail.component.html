@@ -13,7 +13,14 @@
              [ngStyle]="{ 'transform': zoomActive ? 'scale(2.2)' : 'scale(1)' }"
              (mousemove)="handleMouseMove($event)">
       </div>
+
+      <div class="product-variant-images">
+        <div class="variant-image" *ngFor="let variantImage of allImageVariants">
+          <img class="variantImg" src="{{variantImage}}">
+        </div>
+      </div>
     </div>
+
     
     <div class="col-md-4 mr-auto">
 
@@ -28,6 +35,7 @@
 
         <div class="row">
           <div class="size-buttons col-md-12">
+            <button class="size-button">XS</button>
             <button class="size-button">S</button>
             <button class="size-button">M</button>
             <button class="size-button">L</button>
@@ -100,6 +108,12 @@
             </div>
           </div>
         </div>
+
+        <div class="row">
+          <div class="product-image col-md-12">
+            <img src="https://i.imgur.com/o3xVa04.png" alt="Descripción de la imagen">
+          </div>
+        </div> 
       </div>
     </div>
   </div>

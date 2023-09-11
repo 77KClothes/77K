@@ -23,6 +23,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   product: ProductDetail;
   activeProductVariant: ProductVariantDetails;
+  allImageVariants: string[];
 
   cartState: Observable<CartState>;
   innerLoading = true;
@@ -86,6 +87,14 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
               this.product = data;
               this.variant = params.variant ? params.variant : this.product.productVariantDetails[0].id;
               this.activeProductVariant = data.productVariantDetails.find(p => p.id === Number(this.variant));
+              console.log(this.product.productVariantDetails);
+
+              // Obtener todas las imagenes de productVariantDetailsconst 
+              this.allImageVariants = this.product.productVariantDetails.map(variant => variant.image);
+
+
+              console.log("Images" + this.allImageVariants);
+
               if (!this.activeProductVariant) {
                 this.activeProductVariant = data.productVariantDetails[0];
               }

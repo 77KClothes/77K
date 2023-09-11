@@ -42,8 +42,41 @@
   .product-img:active {
     cursor: zoom-out;
   }
-  
 
+  .product-variant-images {
+    margin-top: 20px;
+    white-space: nowrap; /* Evita el salto de línea */
+    overflow-x: auto; /* Agrega desplazamiento horizontal si es necesario */
+    font-size: 0; /* Elimina el espacio entre las imágenes (puede ser necesario) */
+    transition: all ease; /* Agrega una transición para que el cambio de imagen sea más suave */
+  }
+  
+  .variant-image {
+    display: contents;
+    cursor: pointer;
+  }
+  
+  /* Estilo para las imágenes dentro del contenedor */
+  .variant-image img {
+    width: 20%; /* Tamaño de las imágenes */
+    margin-right: 15px; /* Espacio entre imágenes */
+    height: auto; /* Mantiene la proporción de aspecto */
+    border-radius: 10px;
+    padding: 5px; /* Añade un espacio alrededor de las imágenes */
+    transition: all ease; /* Agrega una transición para que el cambio de imagen sea más suave */
+  }
+  
+  /* Estilo para resaltar la imagen activa */
+  .variant-image.active img {
+    border-color: #007bff; /* Cambia el color del borde de la imagen activa */
+  }
+  
+  /* Estilo para las imágenes cuando se pasa el mouse por encima */
+  .variant-image img:hover {
+    filter: brightness(0.75);
+    transition: all ease; /* Agrega una transición al cambiar el color del borde */
+  }
+  
   .product-description {
     margin-bottom: 20px;
     .category {
@@ -68,7 +101,6 @@
     }
 
     .description {
-      min-height: 8vh;
       font-size: 14px;
       font-weight: 300;
       color: #86939e;
@@ -133,45 +165,45 @@
       }
     }
 
-/* Add this CSS to your existing stylesheet */
-.add {
-  margin-top: 15px;
-  .out-stock {
-    border: 1px solid gray;
-    color: gray;
-  }
-  button {
-    position: relative;
-    border-radius: 10px;
-    width: 100%;
-    background-color: black;
-    color: white;
-    overflow: hidden;
-    z-index: 1;
-    transition: color 0.2s;
-  }
+    /* Add this CSS to your existing stylesheet */
+    .add {
+      margin-top: 25px;
+      .out-stock {
+        border: 1px solid gray;
+        color: gray;
+      }
+      button {
+        position: relative;
+        border-radius: 10px;
+        width: 100%;
+        background-color: black;
+        color: white;
+        overflow: hidden;
+        z-index: 1;
+        transition: color 0.2s;
+      }
 
-  /* Add a pseudo-element for the hover effect */
-  button::before {
-    content: "";
-    position: absolute;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    transition: bottom 0.2s;
-    z-index: -1; /* Push the pseudo-element behind the button content */
-  }
+      /* Add a pseudo-element for the hover effect */
+      button::before {
+        content: "";
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        transition: bottom 0.2s;
+        z-index: -1; /* Push the pseudo-element behind the button content */
+      }
 
-  button:hover::before {
-    bottom: 0;
-  }
+      button:hover::before {
+        bottom: 0;
+      }
 
-  button:hover {
-    color: black; /* Change the text color to black on hover */
-  }
-}
+      button:hover {
+        color: black; /* Change the text color to black on hover */
+      }
+    }
 
 
 
@@ -193,7 +225,6 @@
     .product-detail-info,
     .delivery-info {
       margin-top: 25px;
-      height: 15vh;
       .color {
         margin-left: 5px;
         display: inline-block;
@@ -218,6 +249,16 @@
           margin-left: 5px;
         }
       }
+    }    
+
+    .product-image{
+      margin-top: 25px;
+      width: 100%;
+      height: 100%;
+
+      img{
+        width: 100%;
+       }
     }
 
     .variant-info {
@@ -246,4 +287,5 @@
       }
     }
   }
+
 }
