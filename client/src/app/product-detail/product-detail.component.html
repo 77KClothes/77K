@@ -8,7 +8,7 @@
     <div class="imgContainer col-md-6">
       <div class="zoom-container" (click)="handleZoom()">
         <img class="product-img img-responsive" 
-             src="{{ activeProductVariant.image }}" 
+             src="{{ activeProductImage }}" 
              alt="{{ product.name }}"
              [ngStyle]="{ 'transform': zoomActive ? 'scale(2.2)' : 'scale(1)' }"
              (mousemove)="handleMouseMove($event)">
@@ -16,7 +16,7 @@
 
       <div class="product-variant-images">
         <div class="variant-image" *ngFor="let variantImage of allImageVariants">
-          <img class="variantImg" src="{{variantImage}}">
+          <img class="variantImg" src="{{variantImage}}" (click)="changeMainImage(variantImage)">
         </div>
       </div>
     </div>

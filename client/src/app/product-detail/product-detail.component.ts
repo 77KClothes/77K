@@ -24,6 +24,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   product: ProductDetail;
   activeProductVariant: ProductVariantDetails;
   allImageVariants: string[];
+  activeProductImage: string = '';
 
   cartState: Observable<CartState>;
   innerLoading = true;
@@ -99,12 +100,17 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
                 this.activeProductVariant = data.productVariantDetails[0];
               }
               this.innerLoading = false;
+              this.activeProductImage = this.allImageVariants[0];
             }
           );
       }
     );
 
   }
+
+  changeMainImage(newImage: string) {
+    this.activeProductImage = newImage;
+  }  
 
   handleZoom() {
     this.zoomActive = !this.zoomActive;
